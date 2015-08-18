@@ -23,6 +23,7 @@ var ticTacToe = {
   	},
 
   	allIndexesOfX: function () {
+  		//gets all instances that there is an X in the array but keeps on duplicating previous elements
   		for (var i = 0; i < this.board.length; i++){
   			if (this.board[i] === "X") {
   				this.player1.push(i);
@@ -40,6 +41,7 @@ var ticTacToe = {
 
 
   	allIndexesOfO: function () {
+  		//gets all instances that there is an X in the array but keeps on duplicating previous elements
   		for (var i = 0; i < this.board.length; i++){
   			if (this.board[i] === "O") {
   				this.player2.push(i);
@@ -52,9 +54,6 @@ var ticTacToe = {
   	},
 
 
-  	
-
-	
 
 
   	init: function () {
@@ -62,6 +61,15 @@ var ticTacToe = {
    		var turnCount = 0;
 		$('button').on('click', function(){
 		var id = parseInt( $(this).attr('id') );
+		
+		//stops a square from being re-assigned when it has already been clicked
+		//.trim() to make sure there is no blank space in the square already
+		if ($(this).text().trim() !== ''){
+			alert('You already have played here');
+			return;
+		}
+
+		
 		//.attr()will find the attribute
 		if (turnCount%2 === 0) {
 			$(this).text('X').addClass('X');
@@ -74,7 +82,6 @@ var ticTacToe = {
 			$('button.O');
 			
 		}
-		//console.log(ticTacToe.player1.push($('button.X').attr('id')));
 		ticTacToe.allIndexesOfX();
 		ticTacToe.allIndexesOfO();
 		console.log(ticTacToe.player1);
