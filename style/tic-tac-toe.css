@@ -3,5 +3,23 @@ table {
 }
 
 td {
+	padding: 0;
 	border: 2px solid black;
 }
+
+button {
+	height: 200px;
+	width: 200px;
+	padding: 0px;
+}
+
+.X {
+
+	display: none;
+}
+
+
+.O {
+	display: none;
+}
+
