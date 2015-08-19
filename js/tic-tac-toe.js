@@ -24,30 +24,42 @@ var ticTacToe = {
 
   	
   	winningMove: function () {
-  		var win = [	[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [ 1, 4, 7], [2, 5, 8], [1, 4, 8], [2, 4, 6]	];
+  		var win = [	[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [ 1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]	];
         for (var i = 0; i < win.length; i++) {
           
+          // if ( ($( win[i] ).not( this.player1 ).length !== 0) && (this.player1.length + this.player2.length === 9) && ($( win[i] ).not( this.player2).length !== 0)) {
+            
+
+          //   $('playAgain h1').text('This is a draw!');
+          //   $('.playAgain').css('opacity', '1');
+          //   return;
+          // } else
+
           if ( $( win[i] ).not( this.player1 ).length === 0 && (this.player1.length >= 3)) {
             
             this.player1Wins++;
-            $('.player1').css('display', 'inline-block');
-            $('.playAgain').css('opacity', '1');
+            $('.playAgain h1').text('Player1 Wins!');
+            $('.moveBlock').css('display', 'inline-block');
+            $('.playAgain').css('display', 'inline-block');
             return;
             
           } else if ( $( win[i] ).not( this.player2 ).length === 0 && (this.player2.length >= 3) ) {
             
             this.player2Wins++;
-            $('.player2').css('display', 'inline-block');
-            $('.playAgain').css('opacity', '1');
+            $('.playAgain h1').text('Player2 Wins!');
+            $('.moveBlock').css('display', 'inline-block');
+            $('.playAgain').css('display', 'inline-block');
+            
             return;
 
-          } else if ( ($( win[i] ).not( this.player1 ).length !== 0) && (this.player1.length === 5)) {
-            
-
-            $('.draw').css('display', 'inline-block');
-            $('.playAgain').css('opacity', '1');
+          } else if (!($( win[i] ).not( this.player1 ).length === 0) && (this.player1.length ===5 ) ) {
+            $('.playAgain h1').text('This is a draw!');
+            $('.moveBlock').css('display', 'inline-block');
+            $('.playAgain').css('display', 'inline-block');
             return;
           }
+          
+
 
         }
         
@@ -57,32 +69,35 @@ var ticTacToe = {
 
     clearBoard: function () {
       $('button.cell').text('');
+      $('playAgain h1').text('');
+      $('.moveBlock').css('display', 'none')
       this.board = [ null, null, null, null, null, null, null, null, null ];
       this.player1 = [];
       this.player2 = [];
       this.gameCount++;
-      console.log(this.player1Wins);
-      console.log(this.player2Wins);
-      console.log(this.gameCount);
+      $('.player1Score .points').text(ticTacToe.player1Wins);
+      $('.player2Score .points').text(ticTacToe.player2Wins);
+     
+      
+      
       if (this.gameCount%2 !== 0) {
         this.player1 === this.player2;
         this.player2 === this.player1;
 
-        
-        
       }
     },
 
   	init: function () {
     // jQuery stuff goes here
       var turnCount = 0;
+      $('.player1Score .points').text(ticTacToe.player1Wins);
+      $('.player2Score .points').text(ticTacToe.player2Wins);
       $('button.cell').on('click', function(){
       var id = parseInt( $(this).attr('id') );
     
     //stops a square from being re-assigned when it has already been clicked
     //.trim() to make sure there is no blank space in the square already
       if ($(this).text().trim() !== ''){
-          alert('You already have played here');
           return;
     }
       //.attr()will find the attribute
@@ -99,21 +114,22 @@ var ticTacToe = {
         $(this).text('O').addClass('O');
         ticTacToe.board[id] = "O";
       }
-      debugger;
+      
       ticTacToe.winningMove();
       turnCount++;
-      // if (turnCount === 9) {
-      //   ticTacToe.isDraw();
-      // } 
+
     
     });
     
     $('button.yes').on('click', function () {
-      $('.playAgain').css('opacity', '0');
-      ticTacToe.clearBoard();
-
-      
+      $('.playAgain').css('display', 'none');
+      ticTacToe.clearBoard(); 
     })
+
+    $('button.no').on('click', function () {
+      $('.goodbye').css('display', 'inline-block');
+
+    });
   }
 }
 
