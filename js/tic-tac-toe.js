@@ -10,88 +10,69 @@ var ticTacToe = {
   	//board consists of 3 rows and columns. The columns are illustrated by the row arrays
  	
   	board: [ 	null, null, null, 
-  				null, null, null, 
-  				null, null, null	],
+  				    null, null, null, 
+  				    null, null, null	],
 
 
   	player1: [],
   	player2: [],
 
+  	
+
+  	
   	winningMove: function () {
   		var win = [	[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [ 1, 4, 7], [2, 5, 8], [1, 4, 8], [2, 4, 6]	];
- 
-  	},
-
-  	allIndexesOfX: function () {
-  		//gets all instances that there is an X in the array but keeps on duplicating previous elements
-  		for (var i = 0; i < this.board.length; i++){
-  			if (this.board[i] === "X") {
-  				this.player1.push(i);
-  			}
-  			//removes all the duplicate elements from the player1 array
-  			$('#dvallElements').html(this.player1.join("<br />"));
-   	 		this.player1 = $.unique(this.player1);
-    		$('#dvUniqueItems').html(this.player1.sort().join("<br />"));
-
-  		}
-  	},
-	
+        for (var i = 0; i < win.length; i++) {
+          if ( $( win[i] ).not( this.player1 ).length === 0 ) {
+            return alert( 'Player 1 Wins!' );
+          } else if ( $( win[i] ).not( this.player2 ).length === 0 ) {
+            return alert( 'Player 2 Wins!' );
+          }
+        }
+        
+      },
 
 
 
-
-  	allIndexesOfO: function () {
-  		//gets all instances that there is an X in the array but keeps on duplicating previous elements
-  		for (var i = 0; i < this.board.length; i++){
-  			if (this.board[i] === "O") {
-  				this.player2.push(i);
-  			}
-  			//removes all duplicate elements from the player2 array
-  			$('#dvallElements').html(this.player2.join("<br />"));
-   	 		this.player2 = $.unique(this.player2);
-    		$('#dvUniqueItems').html(this.player2.sort().join("<br />"));
-  		}
-  	},
-
-
-
+          // this won't work since  siince you can't compare arrays.
+          // if ($.inArray(win[i], this.player1) !== -1 && (this.player1.length >= 3) && $.inArray(win[i], this.player2) == -1) {
+          //   return alert('Player1 wins!');
 
   	init: function () {
     // jQuery stuff goes here
-   		var turnCount = 0;
-		$('button').on('click', function(){
-		var id = parseInt( $(this).attr('id') );
-		
-		//stops a square from being re-assigned when it has already been clicked
-		//.trim() to make sure there is no blank space in the square already
-		if ($(this).text().trim() !== ''){
-			alert('You already have played here');
-			return;
-		}
+      var turnCount = 0;
+    $('button').on('click', function(){
+    var id = parseInt( $(this).attr('id') );
+    
+    //stops a square from being re-assigned when it has already been clicked
+    //.trim() to make sure there is no blank space in the square already
+    if ($(this).text().trim() !== ''){
+      alert('You already have played here');
+      return;
+    }
 
-		
-		//.attr()will find the attribute
-		if (turnCount%2 === 0) {
-			$(this).text('X').addClass('X');
-			ticTacToe.board[id] = "X";
-
-			//$('button.X');
-		} else {
-			$(this).text('O').addClass('O');
-			ticTacToe.board[id] = "O";
-			$('button.O');
-			
-		}
-		ticTacToe.allIndexesOfX();
-		ticTacToe.allIndexesOfO();
-		console.log(ticTacToe.player1);
-		console.log(ticTacToe.player2);
-		console.log( ticTacToe.board );
-		turnCount++;
-
-	    });
-
-  	}
+    
+    //.attr()will find the attribute
+    if (turnCount%2 === 0) {
+      $(this).text('X').addClass('X');
+      ticTacToe.player1.push(id);
+      ticTacToe.player1.sort();
+      ticTacToe.board[id] = "X";
+      
+    } else {
+      ticTacToe.player2.push(id);
+      ticTacToe.player2.sort();
+      $(this).text('O').addClass('O');
+      ticTacToe.board[id] = "O";
+    }
+    ticTacToe.winningMove();
+    // console.log(ticTacToe.player1);
+    // console.log(ticTacToe.player2);
+    // console.log( ticTacToe.board );
+    turnCount++;
+    
+      });
+    }
 }
 
 // then a minimal document ready:
