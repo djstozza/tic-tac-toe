@@ -32,44 +32,50 @@ var ticTacToe = {
         
       },
 
-
-
           // this won't work since  siince you can't compare arrays.
           // if ($.inArray(win[i], this.player1) !== -1 && (this.player1.length >= 3) && $.inArray(win[i], this.player2) == -1) {
           //   return alert('Player1 wins!');
+    isDraw: function () {
+      var win = [ [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [ 1, 4, 7], [2, 5, 8], [1, 4, 8], [2, 4, 6] ];
+        for (var i = 0; i < win.length; i++) {
+          if ( ($( win[i] ).not( this.player1 ).length !== 0) && ($( win[i] ).not( this.player2 ).length !== 0 ) ) {
+            return alert( 'This is a Draw!' );
+          }
+        }
+    },
 
   	init: function () {
     // jQuery stuff goes here
       var turnCount = 0;
-    $('button').on('click', function(){
-    var id = parseInt( $(this).attr('id') );
+      $('button').on('click', function(){
+      var id = parseInt( $(this).attr('id') );
     
     //stops a square from being re-assigned when it has already been clicked
     //.trim() to make sure there is no blank space in the square already
-    if ($(this).text().trim() !== ''){
-      alert('You already have played here');
-      return;
+      if ($(this).text().trim() !== ''){
+        alert('You already have played here');
+        return;
     }
 
     
-    //.attr()will find the attribute
-    if (turnCount%2 === 0) {
-      $(this).text('X').addClass('X');
-      ticTacToe.player1.push(id);
-      ticTacToe.player1.sort();
-      ticTacToe.board[id] = "X";
-      
-    } else {
-      ticTacToe.player2.push(id);
-      ticTacToe.player2.sort();
-      $(this).text('O').addClass('O');
-      ticTacToe.board[id] = "O";
-    }
-    ticTacToe.winningMove();
-    // console.log(ticTacToe.player1);
-    // console.log(ticTacToe.player2);
-    // console.log( ticTacToe.board );
-    turnCount++;
+        //.attr()will find the attribute
+        if (turnCount%2 === 0) {
+          $(this).text('X').addClass('X');
+          ticTacToe.player1.push(id);
+          ticTacToe.player1.sort();
+          ticTacToe.board[id] = "X";
+          
+        } else {
+          ticTacToe.player2.push(id);
+          ticTacToe.player2.sort();
+          $(this).text('O').addClass('O');
+          ticTacToe.board[id] = "O";
+        }
+        ticTacToe.winningMove();
+        turnCount++;
+        if (turnCount === 9) {
+          ticTacToe.isDraw();
+        } 
     
       });
     }
