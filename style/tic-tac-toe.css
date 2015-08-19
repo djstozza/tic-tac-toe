@@ -1,18 +1,45 @@
+.container {
+	text-align: center;
+	margin: 0 auto;
+}
+
 table {
 	border: 2px solid black;
 }
 
 td {
-	padding: 0;
+	width: 200px;
+	box-sizing: border-box;
 	border: 2px solid black;
 }
 
-button {
+.cell {
 	height: 200px;
 	width: 200px;
 	padding: 0px;
 }
 
 img {
+	display: none;
+}
+
+.playAgain {
+	display: inline-block;
+	opacity: 0;
+	border: 2px solid black;
+	hieght: 630px;
+	width: 630px;
+
+}
+
+.player1 {
+	display: none;
+}
+
+.player2 {
+	display: none;
+}
+
+.draw {
 	display: none;
 }

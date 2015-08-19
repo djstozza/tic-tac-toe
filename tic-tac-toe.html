@@ -6,87 +6,98 @@
 	<link rel="stylesheet" type="text/css" href="style/tic-tac-toe.css">
 </head>
 <body>
-	<table>
-		<tr>
-			<td>
-				<button id="0">
-					<div class="images">
-						<img src="http://fillmurray.com/200/200" class="X">
-						<img src="http://placecage.com/c/200/200" class="O">
-					</div>
-				</button>
-			</td>
-			<td>
-				<button id="1" class= "cell cell1">
-					<div class="images">
-						<img src="http://fillmurray.com/200/200" class="X">
-						<img src="http://placecage.com/c/200/200" class="O">
-					</div>
-				</button>
-			</td>
-			<td>
-				<button id="2">
-					<div class="images">
-						<img src="http://fillmurray.com/200/200" class="X">
-						<img src="http://placecage.com/c/200/200" class="O">
-					</div>
-				</button>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<button id="3">
-					<div class="images">
-						<img src="http://fillmurray.com/200/200" class="X">
-						<img src="http://placecage.com/c/200/200" class="O">
-					</div>
-				</button>
-			</td>
-			<td>
-				<button id="4">
-					<div class="images">
-						<img src="http://fillmurray.com/200/200" class="X">
-						<img src="http://placecage.com/c/200/200" class="O">
-					</div>
-				</button>
-			</td>
-			<td>
-				<button id="5">
-					<div class="images">
-						<img src="http://fillmurray.com/200/200" class="X">
-						<img src="http://placecage.com/c/200/200" class="O">
-					</div>
-				</button>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<button id="6" class= "cell cell6">
-					<div class="images">
-						<img src="http://fillmurray.com/200/200" class="X">
-						<img src="http://placecage.com/c/200/200" class="O">
-					</div>
-				</button>
-			</td>
-			<td>
-				<button id="7">
-					<div class="images">
-						<img src="http://fillmurray.com/200/200" class="X">
-						<img src="http://placecage.com/c/200/200" class="O">
-					</div>
-				</button>
-			</td>
-			<td>
-				<button id="8">
-					<div class="images">
-						<img src="http://fillmurray.com/200/200" class="X">
-						<img src="http://placecage.com/c/200/200" class="O">
-					</div>
-				</button>
-			</td>
-		</tr>
-	</table>
-
+	<div class="table">
+		<table>
+			<tr>
+				<td>
+					<button id="0" class="cell">
+						<div class="images">
+							<img src="http://fillmurray.com/200/200" class="X">
+							<img src="http://placecage.com/c/200/200" class="O">
+						</div>
+					</button>
+				</td>
+				<td>
+					<button id="1" class= "cell">
+						<div class="images">
+							<img src="http://fillmurray.com/200/200" class="X">
+							<img src="http://placecage.com/c/200/200" class="O">
+						</div>
+					</button>
+				</td>
+				<td>
+					<button id="2" class="cell">
+						<div class="images">
+							<img src="http://fillmurray.com/200/200" class="X">
+							<img src="http://placecage.com/c/200/200" class="O">
+						</div>
+					</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button id="3" class="cell">
+						<div class="images">
+							<img src="http://fillmurray.com/200/200" class="X">
+							<img src="http://placecage.com/c/200/200" class="O">
+						</div>
+					</button>
+				</td>
+				<td>
+					<button id="4" class="cell">
+						<div class="images">
+							<img src="http://fillmurray.com/200/200" class="X">
+							<img src="http://placecage.com/c/200/200" class="O">
+						</div>
+					</button>
+				</td>
+				<td>
+					<button id="5" class="cell">
+						<div class="images">
+							<img src="http://fillmurray.com/200/200" class="X">
+							<img src="http://placecage.com/c/200/200" class="O">
+						</div>
+					</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button id="6" class= "cell">
+						<div class="images">
+							<img src="http://fillmurray.com/200/200" class="X">
+							<img src="http://placecage.com/c/200/200" class="O">
+						</div>
+					</button>
+				</td>
+				<td>
+					<button id="7" class="cell">
+						<div class="images">
+							<img src="http://fillmurray.com/200/200" class="X">
+							<img src="http://placecage.com/c/200/200" class="O">
+						</div>
+					</button>
+				</td>
+				<td>
+					<button id="8" class="cell">
+						<div class="images">
+							<img src="http://fillmurray.com/200/200" class="X">
+							<img src="http://placecage.com/c/200/200" class="O">
+						</div>
+					</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	<div class="playAgain">
+		<h1 class="player1">Player1 Wins!</h1>
+		<h1 class="player2">Player2 Wins!</h1>
+		<h1 class="draw">This is a draw!</h1>
+		<p>would you like to play again?</p>
+		<button class="yes">Yes</button>
+		<button class="no">No</button>
+	</div>
+	
 
 	<script src="js/jquery-1.11.3.js"></script>
 	<script src="js/tic-tac-toe.js"></script>
