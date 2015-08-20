@@ -59,13 +59,14 @@ td button, td img, td span {
 .superMario {
 	width: 97px;
 	height: 99.5px;
-	top: 500px;
-	
+	display: inline-block;
+	animation: drawArc1 3s linear
 
 }
 
 .marioJump {
-	width: 400px;
+	height: 500px;
+	width: 600px;
 	animation: drawArc1 3s linear
 }
 
@@ -75,7 +76,7 @@ td button, td img, td span {
 }
 
 .littleMario {
-	top: 500px;
+	padding-top: 500px;
 	display: inline-block;
 }
 

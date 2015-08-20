@@ -33,8 +33,13 @@ var ticTacToe = {
        });
       $('button.normal').click(function () {
         $('.hello').css('display', 'none');
+        $('body').removeClass("fun"); 
+        //turns off all event handlers associated with the buttons
+        $("button.cell").off();
         ticTacToe.clearBoard();
-        $('body').removeClass('fun');
+        //returns everything to default
+        ticTacToe.init();
+
           
 
       })
