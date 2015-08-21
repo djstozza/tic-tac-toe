@@ -3,7 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Tic-Tac-Toe</title>
-	<link rel="stylesheet" type="text/css" href="style/tic-tac-toe.css">
+	
+	<link rel="stylesheet" type="text/css" href="assets/style/tic-tac-toe.css">
+	<link rel="stylesheet" type="text/css" href="assets/style/animate.css">
 </head>
 <body>
 	<div class="table">
@@ -123,17 +125,32 @@
 		<h1>Hello!</h1>
 		<p>Let's play some Tic-Tac-Toe!</p>
 		<p>Please choose from the options below... That rhymes!</p>
-		<button class="normal">Normal</button>
-		<button class="mario">Mario</button>
-		<img class="funStart" src="http://img1.wikia.nocookie.net/__cb20101019013524/supermariosunshine/images/1/11/Mario_Coin.jpg" alt="">
+		<div class="normalContainer">
+			<button class="normal">Normal</button>
+		</div>
+		<div class="marioContainer">
+			<button class="mario">Mario</button>
+		</div>
+		
+		
+		<img class="marioCoin" src="http://png-3.findicons.com/files/icons/2297/super_mario/256/retro_coin.png" alt="">
+		
+
+
+
+
+
+		<img class="superMario" ="" ="superMario" src="https://blakeleftwich.files.wordpress.com/2013/10/mario_jump.png?w=585" alt="">
+
+		
 
 	</div>
-	<div class="marioJump">
-		<div class="littleMario">
-			<img class="superMario" src="https://blakeleftwich.files.wordpress.com/2013/10/mario_jump.png?w=585" alt="">
-		</div>	
+
 		
-	</div>
+			
+		
+		
+	
 	<div class="score">
 		<h1>Current Score</h1>
 		<h2>Player 1</h2>
@@ -146,13 +163,13 @@
 		</div>
 	</div>
 	
-	<audio src="smw_coin.wav" id="marioStart" preload="auto"></audio>
-	<audio src="210-game-over.mp3" id="lose" preload="auto"></audio>
-	<audio src="206-course-clear-fanfare.mp3" id="winner" preload="auto"></audio>
-	<audio src="Mario-jump-sound.mp3" id="mario" preload="auto"></audio>
-	<audio src="Bowser_Fire_Sound_Effect.mp3" id="bowser" preload="auto"></audio>
-	<audio src="smb_pipe.wav" id="noWin" preload="auto"></audio>
-	<script src="js/jquery-1.11.3.js"></script>
-	<script src="js/tic-tac-toe.js"></script>
+	<audio src="assets/audio/smw_coin.wav" id="marioStart" preload="auto"></audio>
+	<audio src="assets/audio/210-game-over.mp3" id="lose" preload="auto"></audio>
+	<audio src="assets/audio/206-course-clear-fanfare.mp3" id="winner" preload="auto"></audio>
+	<audio src="assets/audio/Mario-jump-sound.mp3" id="mario" preload="auto"></audio>
+	<audio src="assets/audio/Bowser_Fire_Sound_Effect.mp3" id="bowser" preload="auto"></audio>
+	<audio src="assets/audio/smb_pipe.wav" id="noWin" preload="auto"></audio>
+	<script src="assets/js/jquery-1.11.3.js"></script>
+	<script src="assets/js/tic-tac-toe.js"></script>
 </body>
 </html>

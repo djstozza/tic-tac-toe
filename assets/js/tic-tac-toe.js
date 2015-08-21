@@ -22,7 +22,10 @@ var ticTacToe = {
 
     welcome: function() {
         $('button.mario').click(function() {
+            
+
             $('body').addClass('fun');
+            //$('superMario').css('animation', 'jump 1.2s linear');
             marioStart.play();
             ticTacToe.funImages();
             $('.hello').css('display', 'none');
