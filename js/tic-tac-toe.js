@@ -48,6 +48,8 @@ var ticTacToe = {
 
                 if (ticTacToe.turnCount % 2 !== 0) {
                     $(this).find('img.X').show();
+                    //audo.volume = value changes the volume i.e. mario.volume = 0 would mute the volume
+                    mario.volume = 0.4;
                     mario.play();
                 } else {
                     $(this).find('img.O').show();
@@ -113,7 +115,7 @@ var ticTacToe = {
                 $('.playAgain h1').text('This is a draw!');
                 $('.moveBlock').css('display', 'inline-block');
                 $('.playAgain').css('display', 'inline-block');
-                ticTacToe.winner = 'draw';
+              
                 ticTacToe.playWinningAudio();
                 return;
             }
