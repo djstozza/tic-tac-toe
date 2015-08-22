@@ -28,7 +28,7 @@ var ticTacToe = {
             //ticTacToe.marioJump();
             marioStart.play();
             ticTacToe.funImages();
-            //$('.hello').css('display', 'none');
+            $('.hello').css('display', 'none');
             ticTacToe.clearBoard();
 
         });
