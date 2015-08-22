@@ -25,10 +25,10 @@ var ticTacToe = {
             
 
             $('body').addClass('fun');
-            //$('superMario').css('animation', 'jump 1.2s linear');
+            //ticTacToe.marioJump();
             marioStart.play();
             ticTacToe.funImages();
-            $('.hello').css('display', 'none');
+            //$('.hello').css('display', 'none');
             ticTacToe.clearBoard();
 
         });
@@ -43,6 +43,15 @@ var ticTacToe = {
 
         })
     },
+
+    // marioJump: function () {
+    //     $('img.superMario').animate({
+    //         'height': '300px'
+            
+
+    //     })
+    // },
+
 
     funImages: function() {
         if ($('body').hasClass('fun')) {
@@ -114,7 +123,7 @@ var ticTacToe = {
                 ticTacToe.playWinningAudio();
                 return;
 
-            } else if (!($(win[i]).not(this.player1).length === 0) && (this.player1.length === 5) || !($(win[i]).not(this.player2).length === 0) && (this.player2.length === 5)) {
+            } else if ((($(win[i]).not(this.player1).length === 1) && (this.player1.length === 5)) || (($(win[i]).not(this.player2).length === 1) && (this.player2.length === 5))) {
                 $('.playAgain h1').text('This is a draw!');
                 $('.moveBlock').css('display', 'inline-block');
                 $('.playAgain').css('display', 'inline-block');
