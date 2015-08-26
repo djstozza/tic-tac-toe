@@ -4,38 +4,57 @@
 	background-image: url('../images/Mario-Box-question-mark.gif');
 	background-size: 100px 100px;
 	position: absolute;
-	top: 31.5%;
+	top: 40%;
 	left: 54.3%;
 	font-size: 20px;
 	color: white;
 	z-index: 2;
-
-
-	animation: boxBounce 4s linear;
+	animation: boxBrightness 2s infinite;
 
 }
+
+.boxJump {
+	animation: boxBounce 3s linear;
+}
+
+
+
+@keyframes boxBrightness {
+	0% {
+	-webkit-filter: brightness(100%);
+	}
+
+	50% {
+	-webkit-filter: brightness(200%);	
+	}
+
+	100% {
+	-webkit-filter: brightness(100%);	
+	}
+}
+
 
 @keyframes boxBounce {
 	
 	0% {
-		top: 31.5%;
+		top: 40%;
 	}
 
-	12% {
+	16% {
 		background-image: url('../images/Mario-Box-question-mark.gif');
 	}
 
-	13% {
-		top: 31.5%;
+	17% {
+		top: 40%;
 		background-image: url('../images/120px-UsedBlock_NSMBWii.png');
 	}
 
-	14% {
-		top: 28%;
+	18% {
+		top: 33%;
 	}
 
-	15% {
-		top: 31.5%;
+	20% {
+		top: 40%;
 	}
 
 	100% {
@@ -81,6 +100,10 @@
 	width: 100px;
 	position: absolute;
 	display: inline-block;
+	
+}
+
+.jump {
 	animation: jump 1s linear;
 }
 
@@ -92,7 +115,7 @@
     }
     50%	{
 		left: 53%;
-		top: 43%;
+		top: 52%;
     }
     100% {
     	left: 100%;
@@ -106,45 +129,63 @@
 	position: absolute;
 	left: 350px;
 	display: inline-block;
-	height: 90px;
-	width: 56px;
-	animation: coinUp 3s linear;
+	height: 85px;
+	width: 36px;
+	
 	top: 650px;
 	z-index: 1;
 }
 
+.up {
+	animation: coinUp 1.5s linear, coinBrightness 0.5s infinite;
+}
+
+
 @keyframes coinUp {
-	0%, 17% {
+	0%, 34% {
 		opacity: 0;
 	}
 
-	18%	{
+	35%	{
 		top: 30%;
-		left: 58.2%;
+		left: 59.5%;
 		opacity: 1;
 	}
 	
-	25% {
+	55% {
 		top: 0%;
 	}
 	
-	32% {
-		top: 17.3%;
+	75% {
+		top: 27%;
 		opacity: 1;
 	}
+	
 
-
-	90% {
+	80% {
 		opacity: 0;
 	}
 
 	100% {
-		top: 17.3%;
+		top: 27%;
 		opacity: 0;
-		left: 58.2%;
+		left: 59.5%;
 		
 	}
 }
 
+@keyframes coinBrightness {
+	0% {
+	-webkit-filter: bightness(100%);
+	}
+
+	50% {
+	-webkit-filter: brightness(300%);	
+	}
+
+	100% {
+	-webkit-filter: brightness(100%);	
+	}
+}
 
 

@@ -1,7 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto);
+
 body {
 	font-family: 'Roboto', sans-serif;
 }
+
 .container {
 	text-align: center;
 	margin: 0 auto;
@@ -13,21 +15,41 @@ table {
 	border-radius: 5%;
 }
 
-
 td {
 	border-radius: 15%;
 	width: 200px;
 	height: 200px;
 	box-sizing: border-box;
-	background-color: blue;
+	transition: background-color 0.8s ease;
+
+}
+
+td.clickedX:hover .cell {
+	background-color: #d02552;
+}
+
+td.clickedO:hover .cell {
+	background-color: #50d07d;
+}
+
+button.clickedX {
+	background-color: #d02552;
+}
+
+button.clickedO {
+	background-color: #50d07d;
+}
+
+.hello span {
+	color: red;
+	font-size: 20px;
+	text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
 }
 
 img {
 	height: 199px;
 	width: 194px;
 }
-
-
 
 /*gets rid of anticipated spacing*/
 td button, td img, td span {
@@ -42,8 +64,7 @@ td button, td img, td span {
 	outline: none;
 	border: none;
 	width: 100%;
-	background-color: blue;
-
+	background-color: #b2cecf;
 }
 
 
@@ -89,8 +110,8 @@ td button, td img, td span {
 span {
 	color: white;
 	font-size: 100px;
+	transition: opacity 1s ease;
 }
-
 
 
 .player1 {

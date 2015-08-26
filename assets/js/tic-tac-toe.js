@@ -20,15 +20,14 @@ var ticTacToe = {
     turnCount: 0,
     winner: '',
 
+    
+
     welcome: function() {
         $('button.mario').click(function() {
             
 
             $('body').addClass('fun');
-            //ticTacToe.marioJump();
-            marioStart.play();
-            ticTacToe.funImages();
-            $('.hello').css('display', 'none');
+            ticTacToe.marioJump();
             ticTacToe.clearBoard();
 
         });
@@ -37,23 +36,34 @@ var ticTacToe = {
             $('body').removeClass("fun");
             //turns off all event handlers associated with the buttons
             $("button.cell").off();
-            ticTacToe.clearBoard();
+            
             //returns everything to default
             ticTacToe.init();
 
         })
     },
 
-    // marioJump: function () {
-    //     $('img.superMario').animate({
-    //         'height': '300px'
-            
+    coinSound: function () {
+        marioStart.play();
+    },
 
-    //     })
-    // },
-
+    marioJump: function () {
+        $('img.superMario').addClass('jump');
+        mario.volume = 0.3;
+        mario.play();
+        $('.mario').css('animation', '');
+        $('.mario').addClass('boxJump');
+        $('img.marioCoin').addClass('up');
+        setTimeout(this.coinSound, 500);
+        setTimeout(this.funImages, 3000);
+    },
 
     funImages: function() {
+        $('.hello').css('display', 'none');
+        $('.superMario').removeClass('jump');
+        $('img.marioCoin').removeClass('up');
+        $('.mario').removeClass('boxJump');
+        $('.mario').css('animation', 'boxBrightness 2s infinite');
         if ($('body').hasClass('fun')) {
             $('button.cell').click(function() {
                 $('span').text('');
@@ -61,7 +71,7 @@ var ticTacToe = {
                 if (ticTacToe.turnCount % 2 !== 0) {
                     $(this).find('img.X').show();
                     //audo.volume = value changes the volume i.e. mario.volume = 0 would mute the volume
-                    mario.volume = 0.4;
+                    mario.volume = 0.3;
                     mario.play();
                 } else {
                     $(this).find('img.O').show();
@@ -139,10 +149,16 @@ var ticTacToe = {
 
 
     clearBoard: function() {
-        $('span').text('');
+        
+        $('button.cell span').text('');
         $('playAgain h1').text('');
         $('.moveBlock').css('display', 'none');
-        $('img').css('display', 'none');
+        //$('img:not(.superMario)').css('display', 'none'); - will select every image except for .superMario
+
+        $('img.X').css('display', 'none');
+        $('img.O').css('display', 'none');
+        $('button.cell').removeClass('clickedX');
+        $('button.cell').removeClass('clickedO');
 
         this.winner = '';
         this.board = [null, null, null, null, null, null, null, null, null];
@@ -166,7 +182,11 @@ var ticTacToe = {
         ticTacToe.welcome();
         $('.player1Score .points').text(ticTacToe.player1Wins);
         $('.player2Score .points').text(ticTacToe.player2Wins);
-
+        if (ticTacToe.turnCount === 0) {
+            $('td').addClass('clickedX'); 
+        } else {
+            $('td').addClass('clickedO');
+        }
         $('button.cell').on('click', function() {
             var id = parseInt($(this).attr('id'));
 
@@ -185,6 +205,7 @@ var ticTacToe = {
                 $(this).find('span').text('X');
                 ticTacToe.player1.push(id);
                 ticTacToe.player1.sort();
+                $(this).addClass('clickedX');
                 ticTacToe.board[id] = "X";
 
             } else {
@@ -192,6 +213,7 @@ var ticTacToe = {
                 ticTacToe.player2.push(id);
                 ticTacToe.player2.sort();
                 $(this).find('span').text('O');
+                $(this).addClass('clickedO');
                 ticTacToe.board[id] = "O";
             }
 
